@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 
+import Header from './components/Header/Header.js';
+
 export default function App() {
   const [state, setState] = useState({
     tracks: [{ track:"", album:""}],
@@ -9,7 +11,8 @@ export default function App() {
       album:"",
       year:"",
       url:"",
-    }
+    },
+    editMode: false
   });
 
   useEffect(function(){
@@ -33,33 +36,66 @@ export default function App() {
    async function handleSubmit(e) {
     e.preventDefault();
 
-    try {
-      const track = await fetch('http://localhost:3001/api/tracks', {
-        method:'POST',
-        headers: {
-          'Content-type' : 'Application/json'
-        },
-        body: JSON.stringify(state.newTrack)
-      }).then(res => res.json())
-      
-        
-        setState({
-          tracks: [...state.tracks, track],
-          newTrack: {
-            track: "",
-            album: "",
-            year:"",
-            url:""
-       
+
+    if(state.editMode){
+      try{
+        const {track, album, year, url, _id} = state.newTrack;
+        const tracks = await  fetch(`http://localhost:3001/api/tracks/${_id}`,{
+          method: 'PUT',
+          headers: {
+            'Content-type' : 'Application/json'
+          },
+          body: JSON.stringify({track, album, year, url})
+        }).then(res => res.json());
+        setState(prevState => ({
+          ...prevState,
+          tracks,
+          editMode: false,
+          newTrack:{
+            track:'',
+            album:'',
+            year:'',
+            url: ''
           }
-        })
+        }));
+
+      } catch{
+
+
+      }
+
+    } else {
+      try {
+        const track = await fetch('http://localhost:3001/api/tracks', {
+          method:'POST',
+          headers: {
+            'Content-type' : 'Application/json'
+          },
+          body: JSON.stringify(state.newTrack)
+        }).then(res => res.json())
         
+          
+          setState({
+            tracks: [...state.tracks, track],
+            newTrack: {
+              track: "",
+              album: "",
+              year:"",
+              url:""
+         
+            }
+          })
+          
+    
+  
+  
+      } catch(error) {
+        console.log(error)
+      }
   
 
-
-    } catch(error) {
-      console.log(error)
     }
+
 
 
 
@@ -68,9 +104,8 @@ export default function App() {
   }
 // when updating the form we are merging old values with new values while with add skill we are just replacing the latest data
   function handleChange(e){
-    console.log(e.target)
     setState(prevState => ({
-        tracks: prevState.tracks,
+        ...prevState,
         newTrack:{
           ...prevState.newTrack,
         [e.target.name]: e.target.value
@@ -78,40 +113,68 @@ export default function App() {
     }));
   }
 
+function handleEdit(id){
+  const trackToEdit = state.tracks.find(track => track._id === id)
+  setState(prevState => ({
+    ...prevState,
+    newTrack: trackToEdit,
+    editMode: true
+  }))
+}
+
+async function handleDelete(id){
+  try{
+    const tracks =  await fetch(`http://localhost:3001/api/tracks/${id}`, {
+      method: 'DELETE'
+    }).then(res => res.json());
+    setState(prevState => ({
+      ...prevState,
+      tracks
+    }))
+  } catch{
+
+
+
+  }
+}
+
+
+
+
   return (
+    <>
+    <Header />
     <section>
-      <h2>Tracks </h2>
       <hr />
+      <div>
       {state.tracks.map((s, i) => (
-        <article key={i}>
-          <div>{s.track}</div> <div>{s.album}</div>
+        <article className="container" key={i}>
+          <div>{s.track}</div> 
+          <div>{s.album}</div>
+          <div>{s.year}</div>
+          <div> {s.url}</div>
+          <div className="controls" onClick={()=> handleEdit(s._id)}> {'✏️'}</div>
+          <div className="controls" onClick={() => handleDelete(s._id)}> {'🗑'}</div>
+
         </article>
       ))}
       <hr />
+      </div>
+
       <form onSubmit={handleSubmit}>
-        <label>
-          <span>track name</span>
-          <input name="track" value={state.newTrack.track} onChange={handleChange}  />
-        </label>
-        <label>
-          <span>album</span> 
-
-          <input name="album" value={state.newTrack.album} onChange={handleChange}  />
-          <input name="year" value={state.newTrack.year} onChange={handleChange}  />
-          <input name="url" value={state.newTrack.url} onChange={handleChange}  />
+        <label>Track name<input name="track" value={state.newTrack.track} onChange={handleChange}  /></label>          
+        <label>album<input name="album" value={state.newTrack.album} onChange={handleChange}  /></label>
+        <label> Year<input name="year" value={state.newTrack.year} onChange={handleChange}  /></label>
+        <label>url<input name="url" value={state.newTrack.url} onChange={handleChange}  /></label>
 
 
 
-          {/* <select name="year" value={state.newTrack.year} onChange={handleChange}  >
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select> */}
-        </label>
-        <button>ADD Track</button>
+
+         
+        
+        <button>{state.editMode ? 'Edit ' : 'Add '}</button>
       </form>
     </section>
+    </>
   );
 }

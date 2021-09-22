@@ -2,18 +2,22 @@
   box-sizing: border-box;
 }
   
-body {
+#root {
   font-family: Arial, Helvetica, sans-serif;
-  height: 100vh;
-  display: grid;
+  min-height:100vh;
+  display: flex;
+  flex-direction:column;
   justify-items: center;
   align-items: center;
 }
-  
-h2 {
-  color: #f17d80;
-  margin: 0;
-  text-align: center;
+
+section{
+  flex-grow:1;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+
 }
   
 section > article {
@@ -22,29 +26,56 @@ section > article {
   min-width: 15rem;
   color: white;
   margin: 0.1rem;
-  background-color: #737495;
+  background-color: #737495;  
+}
+div > article {
+  display: flex;
+  justify-content: space-between;
+  min-width: 15rem;
+  color: white;
+  margin: 0.1rem;
+  background-color: #737495;  
+  align-items: center;
+
+
+}
+.article{
+  display:flex;
+  flex-direction: column;
 }
   
 article > div {
   padding: 0.5rem;
 }
+
+
+article > div:nth-child(1){
+  flex-grow:1;
+}
+
+.controls{
+  cursor:pointer;
+  background-color: lightblue;
+}
   
 article > div:nth-child(2) {
-  width: 2rem;
+  width: 4rem;
   background-color: #f17d80;
   text-align: center;
 }
   
 label {
   display: flex;
+  flex-direction:column;
+
   align-items: center;
   margin-top: 0.5rem;
 }
   
-label span {
+/* label span {
   color: #737495;
   width: 4.5rem;
-}
+} */
   
 input,
 select {
@@ -75,4 +106,16 @@ button {
 button:hover {
   color: white;
   background-color: #737495;
+}
+.container{
+  display:flex;
+  justify-content: center;;
+}
+
+form{
+  display:flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items:center;
+
 }
