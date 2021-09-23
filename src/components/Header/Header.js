@@ -1,4 +1,5 @@
 // define a function component
+import {login, logout} from '../../services/firebase';
 import styles from './Header.module.css'
 
 function Header(props){
@@ -9,8 +10,17 @@ function Header(props){
             <ul>
                 <li>Welcome, User</li>
                 <li>IMG</li>
-                <li className={styles.navLink}>Logout</li>
-                <li className={styles.navLink}>Login</li>
+                <li 
+                    className={styles.navLink}
+                    onClick={logout}>
+                    Logout
+                </li>
+
+                <li 
+                    className={styles.navLink}
+                    onClick={login}>
+                    Login
+                </li>
                 
             </ul> 
         </nav>
