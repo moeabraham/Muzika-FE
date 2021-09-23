@@ -19,20 +19,23 @@ firebase.initializeApp(config)
 
 // TODO: set up a provider
 const googleProvider = new firebase.auth.GoogleAuthProvider();
+// reference to firebase auth
+const auth = firebase.auth()
 
 // TODO: set up auth functions
 function login() {
-    firebase.auth().signInWithPopup(googleProvider)
+    auth.signInWithPopup(googleProvider)
 
 }
 
 function logout(){
-    firebase.auth().signOut();
+    auth.signOut();
 }
 // TODO: export auth functions
 
 export {
     // shorthand property syntax
     login,
-    logout
+    logout,
+    auth
 }

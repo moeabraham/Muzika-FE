@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import {auth} from './services/firebase';
 import "./App.css";
 
 import Header from './components/Header/Header.js';
@@ -15,6 +16,12 @@ export default function App() {
     editMode: false
   });
 
+const [userState, setUserState] = useState({
+  user: null
+})
+
+
+
   useEffect(function(){
 
     // make AJAX request (property shorthand props)
@@ -30,7 +37,10 @@ export default function App() {
     }
 
     getAppData()
-    // put incoming data into state(aka update state)
+    // set up authentication observer
+    auth.onAuthStateChanged(user => setUserState({ user }));
+
+
   },[]);
 
    async function handleSubmit(e) {
@@ -143,7 +153,7 @@ async function handleDelete(id){
 
   return (
     <>
-    <Header />
+    <Header user={userState.user} />
     <section>
       <hr />
       <div>
