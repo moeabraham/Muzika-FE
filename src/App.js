@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import {auth} from './services/firebase';
+import {fetchtracks, updateTrack, createTrack, deleteTrack} from "./services/track-service";
 import "./App.css";
 
 import Header from './components/Header/Header.js';
@@ -27,8 +28,7 @@ const [userState, setUserState] = useState({
     // make AJAX request (property shorthand props)
     async function getAppData(){
       
-      const tracks = await fetch('http://localhost:3001/api/tracks')
-      .then(res => res.json())
+      const tracks = await fetchtracks();
 
       setState(prevState => ({
         ...prevState,
@@ -38,8 +38,12 @@ const [userState, setUserState] = useState({
 
     getAppData()
     // set up authentication observer
-    auth.onAuthStateChanged(user => setUserState({ user }));
+    const unsubscribe = auth.onAuthStateChanged(user => setUserState({ user }));
 
+    return function (){
+    // clean up functions
+    unsubscribe();
+    }
 
   },[]);
 
@@ -49,14 +53,9 @@ const [userState, setUserState] = useState({
 
     if(state.editMode){
       try{
-        const {track, album, year, url, _id} = state.newTrack;
-        const tracks = await  fetch(`http://localhost:3001/api/tracks/${_id}`,{
-          method: 'PUT',
-          headers: {
-            'Content-type' : 'Application/json'
-          },
-          body: JSON.stringify({track, album, year, url})
-        }).then(res => res.json());
+
+        const tracks = await  updateTrack(state.newTrack);
+
         setState(prevState => ({
           ...prevState,
           tracks,
@@ -69,20 +68,14 @@ const [userState, setUserState] = useState({
           }
         }));
 
-      } catch{
+      } catch (error){
 
 
       }
 
     } else {
       try {
-        const track = await fetch('http://localhost:3001/api/tracks', {
-          method:'POST',
-          headers: {
-            'Content-type' : 'Application/json'
-          },
-          body: JSON.stringify(state.newTrack)
-        }).then(res => res.json())
+        const track = await createTrack(state.newTrack);
         
           
           setState({
@@ -134,9 +127,8 @@ function handleEdit(id){
 
 async function handleDelete(id){
   try{
-    const tracks =  await fetch(`http://localhost:3001/api/tracks/${id}`, {
-      method: 'DELETE'
-    }).then(res => res.json());
+    const tracks =  await deleteTrack(id);
+
     setState(prevState => ({
       ...prevState,
       tracks
