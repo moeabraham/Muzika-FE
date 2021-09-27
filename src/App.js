@@ -1,15 +1,25 @@
 import { useState, useEffect } from "react";
+// import ReactDOM from 'react-dom';
+// import axios from 'axios'
 import {auth} from './services/firebase';
 import {fetchtracks, updateTrack, createTrack, deleteTrack} from "./services/track-service";
+// import FormPage from './pages/FormPage/FormPage';
 import "./App.css";
-
 import Header from './components/Header/Header.js';
+import {  Route } from 'react-router-dom';
+import FormPage from './pages/FormPage/FormPage'
+import MainPage from './pages/MainPage/MainPage'
+
+// import imageSelected from "./pages/FormPage/FormPage";
+
+
 
 export default function App() {
   const [state, setState] = useState({
-    tracks: [{ track:"", album:""}],
+    tracks: [{ track:"",artist:"", album:"", year:"", url:""}],
     newTrack:{
       track:"",
+      artist:"",
       album:"",
       year:"",
       url:"",
@@ -21,6 +31,25 @@ const [userState, setUserState] = useState({
   user: null
 })
 
+const [image, setImage] = useState('')
+
+console.log(image)
+// console.log(state.newTrack)
+
+// const [loading, setLoading] = useState(false)
+// const uploadImage = e => {
+//   const files = e.target.files[0];
+//   const formData = new FormData();
+//   formData.append("upload_preset", "musicimages")
+//   formData.append("file", "files");
+//   setLoading(true);
+
+//   axios.post('https://api.cloudinary.com/v1_1/dklcmfo0q/image/upload', {formData})
+//   .then(res => setImage(res.data.secure_url))
+//   .then(setLoading(false))
+//   .catch(err => console.log(err));
+
+// }
 
 
   useEffect(function(){
@@ -62,26 +91,29 @@ const [userState, setUserState] = useState({
           editMode: false,
           newTrack:{
             track:'',
+            artist:'',
             album:'',
             year:'',
             url: ''
           }
+          // console.log(state.newTrack)
         }));
 
       } catch (error){
-
 
       }
 
     } else {
       try {
         const track = await createTrack(state.newTrack);
-        
+        // console.log(image)
+
           
           setState({
             tracks: [...state.tracks, track],
             newTrack: {
               track: "",
+              artist:"",
               album: "",
               year:"",
               url:""
@@ -144,39 +176,39 @@ async function handleDelete(id){
 
 
   return (
-    <>
-    <Header user={userState.user} />
-    <section>
-      <hr />
-      <div>
-      {state.tracks.map((s, i) => (
-        <article className="container" key={i}>
-          <div>{s.track}</div> 
-          <div>{s.album}</div>
-          <div>{s.year}</div>
-          <div> {s.url}</div>
-          <div className="controls" onClick={()=> handleEdit(s._id)}> {'✏️'}</div>
-          <div className="controls" onClick={() => handleDelete(s._id)}> {'🗑'}</div>
-
-        </article>
-      ))}
-      <hr />
-      </div>
-
-      <form onSubmit={handleSubmit}>
-        <label>Track name<input name="track" value={state.newTrack.track} onChange={handleChange}  /></label>          
-        <label>album<input name="album" value={state.newTrack.album} onChange={handleChange}  /></label>
-        <label> Year<input name="year" value={state.newTrack.year} onChange={handleChange}  /></label>
-        <label>url<input name="url" value={state.newTrack.url} onChange={handleChange}  /></label>
-
-
-
-
-         
-        
-        <button>{state.editMode ? 'Edit ' : 'Add '}</button>
-      </form>
-    </section>
-    </>
+   <>
+   {/* <Route 
+   path='/'
+   render={() => (
+<MainPage />
+   )}
+   /> */}
+   <Route 
+   path='/FormPage'
+   render={()=> (
+     <FormPage
+     state={state}
+     userState={userState}
+     handleSubmit={handleSubmit}
+     handleChange={handleChange}
+     handleEdit={handleEdit}
+     handleDelete={handleDelete}
+     image={image}
+     setImage={setImage}
+     
+     />
+   )}
+   />
+{/* 
+   <Route
+   path='/'
+   render={() => (
+     <MainPage
+     state={state}
+     userState={userState}
+ />
+   )}
+   /> */}
+   </>
   );
 }

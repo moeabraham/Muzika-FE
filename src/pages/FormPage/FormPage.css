@@ -1,0 +1,122 @@
+/* .pic{
+    width:200px;
+    height:200px;
+
+} */
+
+
+
+.mainContainer{
+    display:flex;
+    flex-direction: row;
+    height:100vh;
+    margin:auto;
+    margin-top:20px;
+    /* flex-flow: column wrap; */
+    /* background-color: red; */
+
+
+}
+
+.imgdiv{
+/* width:33%; */
+height:100vh;  
+/* width:500px; */
+  display:flex;
+    flex-direction: row;
+    justify-content:center;
+    flex-wrap:wrap;
+    /* background-color: red; */
+    /* flex-grow:5; */
+
+
+}
+
+.formshape{
+    height:100vh;
+    display:flex;
+    /* flex-direction: row; */
+    /* background-color:blue; */
+    /* flex-grow:1; */
+    /* justify-content:flex-end;
+    align-items:flex-end; */
+
+}
+
+
+form{
+    display:flex;
+    flex-direction: column;
+    /* margin:auto; */
+    /* text-align: center; */
+    justify-content:flex-start;
+
+/* display:inline-block */
+
+    
+}
+.formBody{
+    display:flex;
+    flex-direction:column;
+    
+
+
+}
+
+.formdiv{
+    display:flex;
+    flex-direction:column;
+    /* flex-grow:1;
+    margin: auto; */
+    width:100%
+
+
+
+}
+.formdiv > label{
+    display:flex;
+    /* margin-left: auto; */
+    /* flex-grow:1; */
+    /* margin: auto; */
+
+
+
+}
+
+.formdiv > input {
+
+    display:flex;
+    /* flex-grow:1; */
+    /* margin: auto; */
+
+
+
+}
+label{
+    display: inline-block;
+    width: 35%;
+    text-align: right;
+  
+}
+
+.card-img-top{
+    width:100%;
+    height:100%;
+}
+
+.CardImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px
+}
+
+.info{
+    display:flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+}
+.containerData{
+    flex-basis:   auto;
+    margin:auto;
+}

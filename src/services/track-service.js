@@ -1,5 +1,4 @@
-const BASE_URL = 'http://localhost:3001/api/tracks'
-
+const BASE_URL = ' http://localhost:3001/api/tracks'
 
 function fetchtracks(){
     return fetch(BASE_URL).then(res => res.json())
@@ -7,13 +6,13 @@ function fetchtracks(){
 }
 
 
-function updateTrack({track, album, year, url, _id}){
+function updateTrack({track, artist, album, year, url, _id}){
     return fetch(`${BASE_URL}/${_id}`,{
         method: 'PUT',
         headers: {
           'Content-type' : 'Application/json'
         },
-        body: JSON.stringify({track, album, year, url})
+        body: JSON.stringify({track,artist, album, year, url})
       }).then(res => res.json());
 }
 
