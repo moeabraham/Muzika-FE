@@ -1,4 +1,5 @@
-const BASE_URL = ' http://localhost:3001/api/tracks'
+const BASE_URL = 'https://muzika-be.herokuapp.com/api/tracks'
+// http://localhost:3001/api/tracks
 
 function fetchtracks(uid){
     // return fetch(BASE_URL + '?uid' + uid).then(res => res.json())
