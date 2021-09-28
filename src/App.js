@@ -5,10 +5,10 @@ import {auth} from './services/firebase';
 import {fetchtracks, updateTrack, createTrack, deleteTrack} from "./services/track-service";
 // import FormPage from './pages/FormPage/FormPage';
 import "./App.css";
-import Header from './components/Header/Header.js';
+// import Header from './components/Header/Header.js';
 import {  Route, Switch } from 'react-router-dom';
 import FormPage from './pages/FormPage/FormPage'
-import imageSelected from './pages/FormPage/FormPage'
+// import imageSelected from './pages/FormPage/FormPage'
 import MainPage from './pages/MainPage/MainPage'
 
 // import imageSelected from "./pages/FormPage/FormPage";
@@ -83,12 +83,12 @@ const [image, setImage] = useState('')
 
    async function handleSubmit(e) {
     e.preventDefault();
-
+    if(!userState.user) return;
 
     if(state.editMode){
       try{
 
-        const tracks = await  updateTrack(state.newTrack);
+        const tracks = await  updateTrack(state.newTrack, userState.user.uid);
 
         setState(prevState => ({
           ...prevState,
@@ -154,6 +154,8 @@ const [image, setImage] = useState('')
   }
 
 function handleEdit(id){
+  if(!userState.user) return;
+
   const trackToEdit = state.tracks.find(track => track._id === id)
   setState(prevState => ({
     ...prevState,
@@ -163,8 +165,10 @@ function handleEdit(id){
 }
 
 async function handleDelete(id){
+  if(!userState.user) return;
+
   try{
-    const tracks =  await deleteTrack(id);
+    const tracks =  await deleteTrack(id, userState.user.uid);
 
     setState(prevState => ({
       ...prevState,

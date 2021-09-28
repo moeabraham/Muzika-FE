@@ -9,7 +9,7 @@ function fetchtracks(uid){
 
 
 function updateTrack({track, artist, album, year, url, _id},uid){
-    return fetch(`${BASE_URL}/${_id}`,{
+    return fetch(`${BASE_URL}/${_id}?uid=${uid}`,{
         method: 'PUT',
         headers: {
           'Content-type' : 'Application/json'
@@ -29,8 +29,8 @@ function createTrack(data, uid){
       
 }
 
-function deleteTrack(id){
-    return fetch(`${BASE_URL}/${id}`, {
+function deleteTrack(id, uid){
+    return fetch(`${BASE_URL}/${id}?uid=${uid}`, {
         method: 'DELETE'
       }).then(res => res.json());
       

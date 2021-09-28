@@ -14,7 +14,7 @@ function Header(props){
                     <li>Welcome, {props.user.displayName}</li>
                     <li>
                         <img 
-                            style={{height: '2.8rem', borderRadius:'50%'}}
+                            style={{height: '2.6rem',width:'2.6rem', borderRadius:'50%'}}
                             src={props.user.photoURL}
                             alt={props.user.displayName}
                         />

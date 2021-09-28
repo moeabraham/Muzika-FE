@@ -107,6 +107,9 @@ button:hover {
   color: white;
   background-color: #737495;
 }
+button:disabled {
+  background-color: lightgray;
+}
 /* .container{
   display:flex;
   justify-content: center;;
