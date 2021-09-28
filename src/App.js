@@ -8,6 +8,7 @@ import "./App.css";
 import Header from './components/Header/Header.js';
 import {  Route } from 'react-router-dom';
 import FormPage from './pages/FormPage/FormPage'
+import imageSelected from './pages/FormPage/FormPage'
 import MainPage from './pages/MainPage/MainPage'
 
 // import imageSelected from "./pages/FormPage/FormPage";
@@ -33,7 +34,10 @@ const [userState, setUserState] = useState({
 
 const [image, setImage] = useState('')
 
-console.log(image)
+// const [image, setImage] = useState({})
+
+// console.log(image)
+// console.log(toLocaleString(imageSelected))
 // console.log(state.newTrack)
 
 // const [loading, setLoading] = useState(false)
@@ -105,8 +109,8 @@ console.log(image)
 
     } else {
       try {
-        const track = await createTrack(state.newTrack);
-        // console.log(image)
+        const track = await createTrack(state.newTrack, image);
+        console.log(image)
 
           
           setState({
@@ -116,7 +120,7 @@ console.log(image)
               artist:"",
               album: "",
               year:"",
-              url:""
+              url:image
          
             }
           })

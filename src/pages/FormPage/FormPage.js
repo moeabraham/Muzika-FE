@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button';
 import "./FormPage.css";
 
 import { Image } from 'cloudinary-react';
+// import { setImage } from '../../app';
 // import Transformation from 'cloudinary-react'
 
 
@@ -15,7 +16,7 @@ import { Image } from 'cloudinary-react';
 const FormPage = (props) => {
 
 const [imageSelected, setImageSelected] = useState('');
-// console.log(imageSelected)
+console.log(imageSelected)
 const uploadImage = () => {
     const formData = new FormData()
     formData.append('file', imageSelected)
@@ -45,8 +46,9 @@ return (
         <div class="containerData" key={i}>
             {/* {console.log(props.image)} */}
           {/* <div> <img class="card-img-top"   cloudName='dklcmfo0q'  src={props.image} alt="Card image cap"/></div>  */}
-          <Image class="CardImage" cloudName='dklcmfo0q'  src={props.image} publicId="musicimages/lzgodi4uvnoitgwwct3p" />
-
+          <Image class="CardImage"   src={s.url} />
+{/* <cloudName='dklcmfo0q'  publicId="musicimages/lzgodi4uvnoitgwwct3p" > */}
+          <p>{s.track}</p>
           {/* <img class="card-img-top" cloudname="dklcmfo0q" publicid="musicimages/lzgodi4uvnoitgwwct3p" alt="Card image cap"  /> */}
 
        
@@ -82,11 +84,23 @@ return (
 
       </div>
       <div  >
-      <label > Upload<input name="url" type="file" 
+      <label >URL<input name="url"  value={props.image} onChange={props.handleChange}   /></label> 
+
+      </div>
+
+
+
+      <div  >
+      <label > Upload<input name="url" type="file"    
         // value={props.state.newTrack.url}
          onChange={(e) => {
             setImageSelected(e.target.files[0]);
-        }} /></label>
+
+          
+      
+            
+             }} /> 
+             </label>
       </div>
 
         
