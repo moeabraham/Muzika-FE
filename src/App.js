@@ -6,7 +6,7 @@ import {fetchtracks, updateTrack, createTrack, deleteTrack} from "./services/tra
 // import FormPage from './pages/FormPage/FormPage';
 import "./App.css";
 import Header from './components/Header/Header.js';
-import {  Route } from 'react-router-dom';
+import {  Route, Switch } from 'react-router-dom';
 import FormPage from './pages/FormPage/FormPage'
 import imageSelected from './pages/FormPage/FormPage'
 import MainPage from './pages/MainPage/MainPage'
@@ -60,8 +60,9 @@ const [image, setImage] = useState('')
 
     // make AJAX request (property shorthand props)
     async function getAppData(){
-      
-      const tracks = await fetchtracks();
+
+      if(!userState.user) return;
+      const tracks = await fetchtracks(userState.user.uid);
 
       setState(prevState => ({
         ...prevState,
@@ -78,7 +79,7 @@ const [image, setImage] = useState('')
     unsubscribe();
     }
 
-  },[]);
+  }, [userState.user]);
 
    async function handleSubmit(e) {
     e.preventDefault();
@@ -109,7 +110,7 @@ const [image, setImage] = useState('')
 
     } else {
       try {
-        const track = await createTrack(state.newTrack, image);
+        const track = await createTrack(state.newTrack,  userState.user.uid );
         console.log(image)
 
           
@@ -187,8 +188,21 @@ async function handleDelete(id){
 <MainPage />
    )}
    /> */}
+   <Switch>
+   {/* <Route 
+     exact path='/'
+   render={(props) => (
+     <MainPage 
+     {...props}
+     state={state}
+     userState={userState}
+    />
+   )}
+/> */}
+
+{/* remember to be specific about how you arrange you Routes, '/' with exact as first. then either use exact or arrange them properly  */}
    <Route 
-   path='/FormPage'
+     exact path='/FormPage'
    render={()=> (
      <FormPage
      state={state}
@@ -203,16 +217,19 @@ async function handleDelete(id){
      />
    )}
    />
-{/* 
-   <Route
-   path='/'
-   render={() => (
-     <MainPage
+
+
+   </Switch>
+ <Route
+   exact path='/'
+   render={(props) => (
+     <MainPage 
+     {...props}
      state={state}
      userState={userState}
  />
    )}
-   /> */}
+   /> 
    </>
   );
 }

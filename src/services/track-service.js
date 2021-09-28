@@ -1,12 +1,14 @@
 const BASE_URL = ' http://localhost:3001/api/tracks'
 
-function fetchtracks(){
-    return fetch(BASE_URL).then(res => res.json())
+function fetchtracks(uid){
+    // return fetch(BASE_URL + '?uid' + uid).then(res => res.json())
+
+    return fetch(`${BASE_URL}?uid=${uid}`).then((res) => res.json());
 
 }
 
 
-function updateTrack({track, artist, album, year, url, _id}){
+function updateTrack({track, artist, album, year, url, _id},uid){
     return fetch(`${BASE_URL}/${_id}`,{
         method: 'PUT',
         headers: {
@@ -16,13 +18,13 @@ function updateTrack({track, artist, album, year, url, _id}){
       }).then(res => res.json());
 }
 
-function createTrack(data){
+function createTrack(data, uid){
     return fetch(BASE_URL, {
         method:'POST',
         headers: {
           'Content-type' : 'Application/json'
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify({...data, uid})
       }).then(res => res.json())
       
 }

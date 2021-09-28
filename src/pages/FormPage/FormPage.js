@@ -1,13 +1,14 @@
 import Header from '../../components/Header/Header'
+import {Link} from 'react-router-dom'
 // import styles from './FormPage.module.css'
 import Axios from 'axios';
 import { useState } from 'react';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
+// import Card from 'react-bootstrap/Card';
+// import Button from 'react-bootstrap/Button';
 // import styles from './FormPage.module.css';
 import "./FormPage.css";
 
-import { Image } from 'cloudinary-react';
+// import { Image } from 'cloudinary-react';
 // import { setImage } from '../../app';
 // import Transformation from 'cloudinary-react'
 
@@ -16,7 +17,7 @@ import { Image } from 'cloudinary-react';
 const FormPage = (props) => {
 
 const [imageSelected, setImageSelected] = useState('');
-console.log(imageSelected)
+// console.log(imageSelected)
 const uploadImage = () => {
     const formData = new FormData()
     formData.append('file', imageSelected)
@@ -40,27 +41,35 @@ const uploadImage = () => {
 return (
     <>
     <Header user={props.userState.user} />
+    <Link className= "btn btn-default" to='/'> Home</Link>
       <div class="mainContainer container-fluid" >  
       <div class="imgdiv container-fluid" >
-      {props.state.tracks.map((s, i) => (
+      { props.userState.user ? props.state.tracks.map((s, i) => (
         <div class="containerData" key={i}>
             {/* {console.log(props.image)} */}
           {/* <div> <img class="card-img-top"   cloudName='dklcmfo0q'  src={props.image} alt="Card image cap"/></div>  */}
-          <Image class="CardImage"   src={s.url} />
+          {/* <Image class="CardImage"   src={s.url} /> */}
+          <img class="cardImage" src={s.url} alt="Loading"/>
 {/* <cloudName='dklcmfo0q'  publicId="musicimages/lzgodi4uvnoitgwwct3p" > */}
-          <p>{s.track}</p>
+<div class='info'>
+          <div><p>{s.track}</p></div>
+          <div><p>{s.artist}</p></div>
+          <div><p>{s.album}</p></div>
+          </div>
           {/* <img class="card-img-top" cloudname="dklcmfo0q" publicid="musicimages/lzgodi4uvnoitgwwct3p" alt="Card image cap"  /> */}
 
        
 
 
-
-          <div className="controls" onClick={()=> props.handleEdit(s._id)}> {'✏️'}</div>
-          <div className="controls" onClick={() => props.handleDelete(s._id)}> {'🗑'}</div> 
-
+<div class="controls-container">
+          <div class="controls" onClick={()=> props.handleEdit(s._id)}> {'✏️'}</div>
+          <div class="controls" onClick={() => props.handleDelete(s._id)}> {'🗑'}</div> 
+</div>
 
         </div>
-      ))}
+      )) : 
+    <article> No skills to show -please login  </article>
+    }
 
       </div>
      
@@ -104,7 +113,7 @@ return (
       </div>
 
         
-        <button class="formdiv" onClick={uploadImage} > {props.state.editMode ? 'Edit ' : 'Add '}</button>
+        <button disabled={!props.userState.user} class="formdiv" onClick={uploadImage} > {props.state.editMode ? 'Edit ' : 'Add '}</button>
         </div>
       </form>
 
