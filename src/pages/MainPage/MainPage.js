@@ -1,6 +1,6 @@
 
 import Header from '../../components/Header/Header';
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 import "./MainPage.css";
 // import Background from "../../components/Background/Background.js";
 // import music from '/images/music';
@@ -12,7 +12,7 @@ const MainPage = (props) => {
         <>
         <Header user={props.userState.user}  />
         <div className="container">
-            <h1>heheheh</h1>
+            <h1 className="font-link">heheheh</h1>
     </div>
         </>
     )

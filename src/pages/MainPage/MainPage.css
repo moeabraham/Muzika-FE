@@ -1,9 +1,10 @@
 
 
 .font-link {
-    font-family: 'Cedarville Cursive', cursive;
+    /* font-family: 'Cedarville Cursive', cursive; */
     font-family: 'Lobster', cursive;
-    background-image:'' ;
+    color:white;
+    
   }
   /* .container{
     background-image: url("./musicbg.png") no-repeat; 
