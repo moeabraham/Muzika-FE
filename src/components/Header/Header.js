@@ -5,7 +5,7 @@ import styles from './Header.module.css'
 function Header(props){
     return(
     <header className={styles.header}>
-        <h1>{'⚛️'} React Muzik</h1>
+        <h1>{'🎹'} React Muzik</h1>
         <nav>
             <ul>
                 {
