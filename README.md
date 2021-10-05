@@ -1,5 +1,5 @@
 
-to view the backend repo: To view the backend repo: https://github.com/moeabraham/Muzika-BE
+to view the backend repo: https://github.com/moeabraham/Muzika-BE
 
 # Getting Started with Create React App
 
