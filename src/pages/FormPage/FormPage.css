@@ -14,8 +14,11 @@
     margin-top:20px;
     /* flex-flow: column wrap; */
     /* background-color: red; */
+    /* background-image: url(./fly.png) ;
+    background-repeat: no-repeat;
+    background-size: cover;
 
-
+ */
 }
 
 .imgdiv{
@@ -141,4 +144,37 @@ img{
     width:15rem;
 
 
+  }
+
+
+  @media (max-width:900px){
+      *{
+          max-width:100%;
+      }
+      header{
+        width: 100vw;
+        padding: auto;
+        display: flex;
+        flex-direction: column;
+        background-color: cornsilk;
+        color: #91b1ed;
+      }
+      header > h1{
+        font-size: 1.5rem;
+        width: 100vw;
+        text-align: center;
+      }
+      header > ul {
+        font-size: 0.85rem;
+        width: 100vw;
+        padding: 0;
+        justify-content: space-around;
+        margin: 0;
+      }
+      header > ul > li {
+          margin:0;
+      }
+      /* .main-container{
+          width:100;
+      } */
   }

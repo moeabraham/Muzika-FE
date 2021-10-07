@@ -32,3 +32,20 @@
     cursor:pointer;
     font-weight:700;
 }
+
+@media (max-width:800px){
+    .header{
+        /* background-color:rgba(214, 57, 57, 0.719); */
+        color:white;
+        width: 100vw;
+        padding: auto;
+        display: flex;
+        flex-direction: column;
+        background-color: cornsilk;
+        color: #91b1ed;
+        /* background-color: #c76057;
+    color: white;
+    border: solid white; */
+
+    }
+}

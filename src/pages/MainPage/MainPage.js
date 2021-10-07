@@ -13,7 +13,7 @@ const MainPage = (props) => {
     return (
         <>
         <Header user={props.userState.user}  />
-        <div className="container">
+        <div className="container ">
             <div className="title">
             <h1 className="font-link">Welcome to your Music Library </h1>
             <h2 className="font-link">Create a new Track </h2>
