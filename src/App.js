@@ -10,12 +10,19 @@ import {  Route, Switch } from 'react-router-dom';
 import FormPage from './pages/FormPage/FormPage'
 // import imageSelected from './pages/FormPage/FormPage'
 import MainPage from './pages/MainPage/MainPage'
+import $ from 'jquery'
 
 // import imageSelected from "./pages/FormPage/FormPage";
 
 
 
 export default function App() {
+
+
+  const [image, setImage] = useState('')
+
+
+
   const [state, setState] = useState({
     tracks: [{ track:"",artist:"", album:"", year:"", url:""}],
     newTrack:{
@@ -32,7 +39,6 @@ const [userState, setUserState] = useState({
   user: null
 })
 
-const [image, setImage] = useState('')
 
 // const [image, setImage] = useState({})
 
@@ -110,7 +116,7 @@ const [image, setImage] = useState('')
 
     } else {
       try {
-        const track = await createTrack(state.newTrack,  userState.user.uid );
+        const track = await createTrack(state.newTrack,  userState.user.uid, image );
         console.log(image)
 
           
@@ -126,7 +132,12 @@ const [image, setImage] = useState('')
             }
           })
           
-    
+          setImage('')
+          // TODO: set form to empty string
+          $('.text').val('');
+          $('.text').val('');
+          $('.submit')
+      
   
   
       } catch(error) {

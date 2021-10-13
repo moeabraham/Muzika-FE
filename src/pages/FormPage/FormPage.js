@@ -2,7 +2,7 @@ import Header from '../../components/Header/Header'
 import {Link} from 'react-router-dom'
 // import styles from './FormPage.module.css'
 import Axios from 'axios';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 // import Card from 'react-bootstrap/Card';
 // import Button from 'react-bootstrap/Button';
 // import styles from './FormPage.module.css';
@@ -30,6 +30,9 @@ const uploadImage = () => {
 };
 
 
+useEffect(function () {
+  props.state.newTrack.url = props.image
+}, [props.image])
 
 
 
@@ -48,15 +51,15 @@ return (
         <div class="containerData" key={i}>
             {/* {console.log(props.image)} */}
           {/* <div> <img class="card-img-top"   cloudName='dklcmfo0q'  src={props.image} alt="Card image cap"/></div>  */}
-          {/* <Image class="CardImage"   src={s.url} /> */}
-          <img class="cardImage" src={s.url} alt="Loading"/>
+          {/* <Image class="CardImage"  cloudName="dklcmfo0q" publicId={props.state.newTrack} /> */}
+          <img class="cardImage" src={s.url}  publicId={props.image} alt="Loading"/>
 {/* <cloudName='dklcmfo0q'  publicId="musicimages/lzgodi4uvnoitgwwct3p" > */}
 <div class='info'>
           <div><p>{s.track}</p></div>
           <div><p>{s.artist}</p></div>
           <div><p>{s.album}</p></div>
-          </div>
-          {/* <img class="card-img-top" cloudname="dklcmfo0q" publicid="musicimages/lzgodi4uvnoitgwwct3p" alt="Card image cap"  /> */}
+          
+                            </div>
 
        
 
@@ -93,7 +96,7 @@ return (
 
       </div>
       <div  >
-      <label >URL<input name="url"  value={props.image} onChange={props.handleChange}   /></label> 
+      {/* <label >URL<input name="url"  value={props.image} onChange={props.handleChange}   /></label>  */}
 
       </div>
 
@@ -104,9 +107,7 @@ return (
         // value={props.state.newTrack.url}
          onChange={(e) => {
             setImageSelected(e.target.files[0]);
-
-          
-      
+            
             
              }} /> 
              </label>
