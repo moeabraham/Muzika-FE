@@ -104,7 +104,7 @@ return (
 
 
       <div  >
-      <label > Upload(<small>upload twice to see image in effect<small>)<input name="url" type="file"    
+      <label > Upload(<small>upload twice to see image in effect</small>)<input name="url" type="file"    
         // value={props.state.newTrack.url}
          onChange={(e) => {
             setImageSelected(e.target.files[0]);
