@@ -11,6 +11,7 @@ import FormPage from './pages/FormPage/FormPage'
 // import imageSelected from './pages/FormPage/FormPage'
 import MainPage from './pages/MainPage/MainPage'
 import $ from 'jquery'
+import DetailsPage from "./pages/DetailsPage/DetailsPage";
 
 // import imageSelected from "./pages/FormPage/FormPage";
 
@@ -233,8 +234,42 @@ async function handleDelete(id){
    )}
    />
 
-
    </Switch>
+
+
+
+
+
+
+   <Switch>
+   <Route 
+     exact path='/details'
+   render={()=> (
+     <DetailsPage
+     state={state}
+     userState={userState}
+     handleSubmit={handleSubmit}
+     handleChange={handleChange}
+     handleEdit={handleEdit}
+     handleDelete={handleDelete}
+     image={image}
+     setImage={setImage}
+     
+     />
+     )}
+     />
+     
+     
+   </Switch>
+
+
+
+
+
+
+
+   
+
  <Route
    exact path='/'
    render={(props) => (

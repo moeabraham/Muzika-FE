@@ -28,6 +28,8 @@ const MainPage = (props) => {
                 Simply go to the form to add new tracks data to your library
     </Card.Text>
     <Link className= "btn btn-default btn-light" to='/formpage'> Add 🎶 🎸</Link>
+    <Link className= "btn btn-default btn-light" to='/details'> details 🎶 🎸</Link>
+
   </Card.Body>
 </Card>
 

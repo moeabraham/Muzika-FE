@@ -29,10 +29,11 @@ const uploadImage = () => {
       })
 };
 
-
+console.log(props.image)
+console.log(props.state.newTrack.url)
 useEffect(function () {
   props.state.newTrack.url = props.image
-}, [props.image])
+}, [props.image, props.state.newTrack])
 
 
 
@@ -52,7 +53,7 @@ return (
             {/* {console.log(props.image)} */}
           {/* <div> <img class="card-img-top"   cloudName='dklcmfo0q'  src={props.image} alt="Card image cap"/></div>  */}
           {/* <Image class="CardImage"  cloudName="dklcmfo0q" publicId={props.state.newTrack} /> */}
-          <img class="cardImage" src={s.url}  publicId={props.image} alt="Loading"/>
+          <img class="cardImage" src={s.url}  publicid={props.image} alt="Loading"/>
 {/* <cloudName='dklcmfo0q'  publicId="musicimages/lzgodi4uvnoitgwwct3p" > */}
 <div class='info'>
           <div><p>{s.track}</p></div>
