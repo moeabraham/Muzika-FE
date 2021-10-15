@@ -97,14 +97,23 @@ return (
             {/* {console.log(props.image)} */}
           {/* <div> <img class="card-img-top"   cloudName='dklcmfo0q'  src={props.image} alt="Card image cap"/></div>  */}
           {/* <Image class="CardImage"  cloudName="dklcmfo0q" publicId={props.state.newTrack} /> */}
+          <div>
           <img class="cardImage" src={s.url}  publicid={props.image} alt="Loading"/>
+          </div>
 {/* <cloudName='dklcmfo0q'  publicId="musicimages/lzgodi4uvnoitgwwct3p" > */}
         <div class='info'>
-          <div><p>{s.track}</p></div>
-          <div><p>{s.artist}</p></div>
-          <div><p>{s.album}</p></div>
+          <div className="info-row">
+              <div className="first-info"><p>{s.track}</p></div>
+              <div className="second-info"><p>{s.artist}</p></div>
+          </div>
+          <div className="info-row">
+
+              <div className="third-info"> <p>{s.album}</p></div>
+              <div className="fourth-info"> <p>{s.album}</p></div>
+          </div>
+
           
-                            </div>
+        </div>
 
        
 
