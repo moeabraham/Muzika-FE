@@ -87,6 +87,80 @@ const [userState, setUserState] = useState({
     }
 
   }, [userState.user]);
+  
+// setTimeout(() => {
+
+//   async function handleSubmit(e) {
+//     e.preventDefault();
+//     if(!userState.user) return;
+
+//     if(state.editMode){
+//       try{
+
+//         const tracks = await  updateTrack(state.newTrack, userState.user.uid);
+
+//         setState(prevState => ({
+//           ...prevState,
+//           tracks,
+//           editMode: false,
+//           newTrack:{
+//             track:'',
+//             artist:'',
+//             album:'',
+//             year:'',
+//             url: ''
+//           }
+//           // console.log(state.newTrack)
+//         }));
+
+//       } catch (error){
+
+//       }
+
+//     } else {
+//       try {
+//         const track = await createTrack(state.newTrack,  userState.user.uid, image );
+//         console.log(image)
+
+          
+//           setState({
+//             tracks: [...state.tracks, track],
+//             newTrack: {
+//               track: "",
+//               artist:"",
+//               album: "",
+//               year:"",
+//               url:image
+         
+//             }
+//           })
+          
+//           setImage('')
+//           // TODO: set form to empty string
+//           $('.text').val('');
+//           $('.text').val('');
+//           $('.submit')
+      
+  
+  
+//       } catch(error) {
+//         console.log(error)
+//       }
+  
+
+//     }
+
+
+
+
+
+
+//   }
+
+
+
+// },1000)
+
 
    async function handleSubmit(e) {
     e.preventDefault();
@@ -154,6 +228,10 @@ const [userState, setUserState] = useState({
 
 
   }
+
+
+
+
 // when updating the form we are merging old values with new values while with add skill we are just replacing the latest data
   function handleChange(e){
     setState(prevState => ({

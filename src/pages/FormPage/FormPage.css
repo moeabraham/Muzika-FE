@@ -3,15 +3,14 @@
     height:200px;
 
 } */
-
+*{
+    {box-sizing:border-box;}
+}
 
 
 .mainContainer{
-    display:flex;
-    flex-direction: row;
-    height:100vh;
-    margin:auto;
-    margin-top:20px;
+    /* display:flex;
+    flex-direction: column; */
     /* flex-flow: column wrap; */
     /* background-color: red; */
     /* background-image: url(./fly.png) ;
@@ -35,72 +34,64 @@ height:100vh;
 
 }
 
-.formshape{
-    height:100vh;
-    display:flex;
-    /* flex-direction: row; */
-    /* background-color:blue; */
-    /* flex-grow:1; */
-    /* justify-content:flex-end;
-    align-items:flex-end; */
 
-}
 
 
 form{
+    width:50%;
     display:flex;
     flex-direction: column;
+    margin:auto;
+    padding:auto;
     /* margin:auto; */
     /* text-align: center; */
-    justify-content:flex-start;
-
 /* display:inline-block */
 
     
 }
-.formBody{
+.form-row{
+    display:flex;
+    justify-content:center;
+    margin-bottom:2rem;
+    gap:5%
+}
+.form-input{
+    margin-bottom:auto;
+}
+.form-row-submit{
+display:flex;
+justify-content:center;
+margin-bottom:2rem;
+gap:5%
+
+}
+.form-input-upload{
     display:flex;
     flex-direction:column;
+
+}
+.form-row-submit > button{
+    width:5rem;
+    flex-basis:1;
     
 
-
 }
-
 .formdiv{
-    display:flex;
-    flex-direction:column;
-    /* flex-grow:1;
-    margin: auto; */
-    width:100%
-
-
-
-}
-.formdiv > label{
-    display:flex;
-    /* margin-left: auto; */
-    /* flex-grow:1; */
-    /* margin: auto; */
-
-
-
+    object-fit:contain;
 }
 
-.formdiv > input {
 
-    display:flex;
-    /* flex-grow:1; */
-    /* margin: auto; */
+  
 
 
 
-}
-label{
+
+/* label{
     display: inline-block;
     width: 35%;
     text-align: right;
   
-}
+} */
 
 .card-img-top{
     width:100%;
@@ -142,7 +133,27 @@ img{
     flex-wrap: wrap;
     gap: 2rem;
     width:15rem;
+    background-color: lemonchiffon;
+    border: solid black;
+    border-radius:1rem;
+    display:flex;
+    justify-content: center;
+    height:4rem;
+    margin-bottom:2rem;
 
+
+  }
+  .controls{
+      align-items: center;
+      margin:auto;
+      border: solid white;
+
+  }
+  .controls:nth-child(1){
+    background-color:green;
+  }
+.controls:nth-child(2){
+    background-color:red;
 
   }
 
@@ -173,6 +184,22 @@ img{
       }
       header > ul > li {
           margin:0;
+      }
+
+      .mainContainer{
+          display:flex;
+          flex-direction:column;
+      }
+      .container-fluid{
+          display:flex;
+
+      }
+      .main-container > form {
+          order:1;
+        margin:auto;          
+      }
+      .main-container > .imgdiv{
+        order:2;
       }
       /* .main-container{
           width:100;
