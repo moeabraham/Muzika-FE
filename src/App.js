@@ -191,6 +191,8 @@ const [userState, setUserState] = useState({
 
     } else {
       try {
+        // setTimeout(() => {
+
         const track = await createTrack(state.newTrack,  userState.user.uid, image );
         console.log(image)
 
@@ -226,7 +228,7 @@ const [userState, setUserState] = useState({
 
 
 
-
+  // },1000)
   }
 
 

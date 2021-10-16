@@ -109,7 +109,7 @@ return (
           <div className="info-row">
 
               <div className="third-info"> <p>{s.album}</p></div>
-              <div className="fourth-info"> <p>{s.album}</p></div>
+              <div className="fourth-info"> <p>{s.year}</p></div>
           </div>
 
           

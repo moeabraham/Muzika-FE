@@ -1,11 +1,28 @@
-                                        Name of the app: Muzika 
-Muzika is a music Library that allows the user to save his favorite track data and upload their cover art as well to be saved in user's account.
+# Muzika 
 
-Technologies Used: React, Node.js, Express, MongoDB, Bootstrap, CSS3 & HTML5 
+Muzika is a Full stack music Library using the MERN stack to allow the user to save his favorite track data and upload their cover art as well to be saved in user's account.
 
-app link : https://reactmuzika.netlify.app
+# screenshots
 
-to view the backend repo: https://github.com/moeabraham/Muzika-BE
+    ![Main Page](/src/assets/images/scrshot.png)
+
+    ![Form Page](/src/assets/images/scrshot1.png)
+
+
+# Technologies 
+- React
+- Node.js
+- Express
+- MongoDB
+- Bootstrap
+- CSS3
+- HTML5 
+
+# Getting started
+
+[Click Here to get Started](https://reactmuzika.netlify.app)
+
+- [to view the backend Github repo](https://github.com/moeabraham/Muzika-BE)
 
 
 
