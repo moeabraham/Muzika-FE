@@ -4,7 +4,7 @@ Muzika is a Full stack music Library using the MERN stack to allow the user to s
 
 ## screenshots
 
-![Main Page!](./src/assets/images/scrshot.png)
+![Main Page!](./src/assets/Images/scrshot.png)
 ![Form Page!](./src/assets/Images/scrshot1.png)
 
 
