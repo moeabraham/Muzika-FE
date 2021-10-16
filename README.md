@@ -6,7 +6,7 @@ Muzika is a Full stack music Library using the MERN stack to allow the user to s
 
     ![Main Page](./src/assets/images/scrshot.png)
 
-    ![Form Page](./src/assets/images/scrshot1.png)
+    ![Form Page](./src/assets/Images/scrshot1.png)
 
 
 # Technologies 
@@ -20,7 +20,7 @@ Muzika is a Full stack music Library using the MERN stack to allow the user to s
 
 # Getting started
 
-[Click Here to get Started](https://reactmuzika.netlify.app)
+- [Click Here to get Started](https://reactmuzika.netlify.app)
 
 - [to view the backend Github repo](https://github.com/moeabraham/Muzika-BE)
 
