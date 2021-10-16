@@ -2,11 +2,10 @@
 
 Muzika is a Full stack music Library using the MERN stack to allow the user to save his favorite track data and upload their cover art as well to be saved in user's account.
 
-# screenshots
+## screenshots
 
-    ![Main Page](./src/assets/images/scrshot.png)
-
-    ![Form Page](./src/assets/Images/scrshot1.png)
+![Main Page!](./src/assets/images/scrshot.png)
+![Form Page!](./src/assets/Images/scrshot1.png)
 
 
 # Technologies 
