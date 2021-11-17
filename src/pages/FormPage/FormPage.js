@@ -13,24 +13,32 @@ import "./FormPage.css";
 // import Transformation from 'cloudinary-react'
 
 
-// import MainPage from '../MainPage/MainPage'
+// import details from '../DetailsPage/DetailsPage'
+
+
 const FormPage = (props) => {
 
 const [imageSelected, setImageSelected] = useState('');
+
 // console.log(imageSelected)
 const uploadImage = () => {
     const formData = new FormData()
     formData.append('file', imageSelected)
     formData.append('upload_preset', 'musicimages')
+            // console.log(res.data.secure_url)
+
     Axios.post(
         '	https://api.cloudinary.com/v1_1/dklcmfo0q/image/upload', formData)
+        
     .then((res) => {
+      // console.log(res.data.secure_url)
+
         props.setImage(res.data.url);
       })
 };
 
-console.log(props.image)
-console.log(props.state.newTrack.url)
+// console.log(props.image)
+// console.log(props.state.newTrack.url)
 useEffect(function () {
   props.state.newTrack.url = props.image
 }, [props.image, props.state.newTrack])
@@ -88,12 +96,17 @@ return (
              <div className="form-input-button">
 
         <button disabled={!props.userState.user} class="formdiv" onClick={uploadImage} > {props.state.editMode ? 'Edit ' : 'Add '}</button>
+        <button disabled={!props.userState.user} class="formdiv" onClick={uploadImage} > img upload</button>
         </div>
         </div>
       </form>
       <div class="imgdiv " >
       { props.userState.user ? props.state.tracks.map((s, i) => (
         <div class="containerData" key={i}>
+          
+          <Link className= "btn btn-default" to='/details'> Home</Link>
+          {console.log(s)}
+
             {/* {console.log(props.image)} */}
           {/* <div> <img class="card-img-top"   cloudName='dklcmfo0q'  src={props.image} alt="Card image cap"/></div>  */}
           {/* <Image class="CardImage"  cloudName="dklcmfo0q" publicId={props.state.newTrack} /> */}
@@ -121,6 +134,9 @@ return (
 <div class="controls-container">
           <div class="controls" onClick={()=> props.handleEdit(s._id)}> {'✏️'}</div>
           <div class="controls" onClick={() => props.handleDelete(s._id)}> {'🗑'}</div> 
+          <Link className= "btn btn-default btn-light" to={`/details/${s._id}`} > Add </Link>
+
+
 </div>
 
         </div>

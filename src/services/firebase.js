@@ -1,11 +1,14 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
-
+import 'firebase/storage'
+import 'firebase/database'
+// import 'firebase/storage'
 
 const config = {
     // TODO: add project details here
     apiKey: "AIzaSyBJmDoYW6dCn6AYppYa-nnorf1FuoHaTug",
     authDomain: "react-muzika.firebaseapp.com",
+    databaseURL:"https://react-muzika-default-rtdb.firebaseio.com/",
     projectId: "react-muzika",
     storageBucket: "react-muzika.appspot.com",
     messagingSenderId: "468948450493",
@@ -15,6 +18,10 @@ const config = {
 
 
 firebase.initializeApp(config)
+const storage = firebase.storage();
+// firebase.initializeApp(config);
+
+
 
 
 // TODO: set up a provider
@@ -37,5 +44,7 @@ export {
     // shorthand property syntax
     login,
     logout,
-    auth
+    auth,
+    storage, 
+    firebase as default
 }

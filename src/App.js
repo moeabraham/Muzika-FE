@@ -10,7 +10,7 @@ import {  Route, Switch } from 'react-router-dom';
 import FormPage from './pages/FormPage/FormPage'
 // import imageSelected from './pages/FormPage/FormPage'
 import MainPage from './pages/MainPage/MainPage'
-import $ from 'jquery'
+// import $ from 'jquery'
 import DetailsPage from "./pages/DetailsPage/DetailsPage";
 
 // import imageSelected from "./pages/FormPage/FormPage";
@@ -211,9 +211,9 @@ const [userState, setUserState] = useState({
           
           setImage('')
           // TODO: set form to empty string
-          $('.text').val('');
-          $('.text').val('');
-          $('.submit')
+          // $('.text').val('');
+          // $('.text').val('');
+          // $('.submit')
       
   
   
@@ -323,7 +323,7 @@ async function handleDelete(id){
 
    <Switch>
    <Route 
-     exact path='/details'
+     exact path='/details/:id'
    render={()=> (
      <DetailsPage
      state={state}

@@ -1,0 +1,32 @@
+.uploadSec{
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+margin:auto;
+padding:auto;
+
+}
+
+.uploadSec h1{
+    margin-top:3rem;
+    padding:auto;
+}
+
+.uploadSec input {
+    margin-top:2rem;
+}
+
+.imgSec{
+    margin-top:3rem;
+}
+section{
+    display:flex;
+    /* gap:5%; */
+    margin:auto;
+    gap:2%;
+    flex-wrap:wrap;
+    padding:auto;
+
+
+}
