@@ -68,7 +68,7 @@ return (
                         
                         <div className={styles.imgSec} key={id} >
                             <img src={url}  alt="" />
-                            <button onClick={() => deleteImage(id)} >Delete</button>
+                            <button className={styles.button} onClick={() => deleteImage(id)} >Delete</button>
 
                         </div>
                     )

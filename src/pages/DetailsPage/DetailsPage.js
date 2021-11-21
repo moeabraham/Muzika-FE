@@ -4,7 +4,7 @@ import React from 'react'
 import Header from '../../components/Header/Header'
 import UploadImage from "../../components/ImageUpload/UploadImage"
 
-// import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 // import styles from './FormPage.module.css'
 // import Axios from 'axios';
 // import { useState, useEffect } from 'react';
@@ -12,6 +12,8 @@ import UploadImage from "../../components/ImageUpload/UploadImage"
 // import Button from 'react-bootstrap/Button';
 // import styles from './FormPage.module.css';
 import "./DetailsPage.css";
+// import Button from 'react-bootstrap/Button';
+
 // import { CloudinaryContext } from "cloudinary-react";
 // import { fetchPhotos, openUploadWidget } from "./CloudinaryService";
 // import { render } from "react-dom";
@@ -25,8 +27,21 @@ const DetailsPage = (props) => {
 
 return (
     <>
-    
+    <style type="text/css">
+      {`
+      button{
+        margin-right:1rem;
+        background-color: #f17d80;       
+      }
+      `}
+    </style>
     <Header user={props.userState.user} />
+    <div className='buttons'>
+    <button class="button">    <Link  class="link"to='/'> Home</Link>
+ </button>
+    <button class="button">    <Link  class="link"to='/formpage'> Back to form page</Link>
+ </button>
+ </div>
     <UploadImage />
     {/* {console.log(props.state.tracks)} */}
     

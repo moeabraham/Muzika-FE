@@ -1,8 +1,8 @@
 import Header from '../../components/Header/Header'
 import {Link} from 'react-router-dom'
 // import styles from './FormPage.module.css'
-import Axios from 'axios';
-import { useState, useEffect } from 'react';
+// import Axios from 'axios';
+// import { useState, useEffect } from 'react';
 // import Card from 'react-bootstrap/Card';
 // import Button from 'react-bootstrap/Button';
 // import styles from './FormPage.module.css';
@@ -18,30 +18,30 @@ import "./FormPage.css";
 
 const FormPage = (props) => {
 
-const [imageSelected, setImageSelected] = useState('');
+// const [imageSelected, setImageSelected] = useState('');
 
-// console.log(imageSelected)
-const uploadImage = () => {
-    const formData = new FormData()
-    formData.append('file', imageSelected)
-    formData.append('upload_preset', 'musicimages')
-            // console.log(res.data.secure_url)
+// // console.log(imageSelected)
+// const uploadImage = () => {
+//     const formData = new FormData()
+//     formData.append('file', imageSelected)
+//     formData.append('upload_preset', 'musicimages')
+//             // console.log(res.data.secure_url)
 
-    Axios.post(
-        '	https://api.cloudinary.com/v1_1/dklcmfo0q/image/upload', formData)
+//     Axios.post(
+//         '	https://api.cloudinary.com/v1_1/dklcmfo0q/image/upload', formData)
         
-    .then((res) => {
-      // console.log(res.data.secure_url)
+//     .then((res) => {
+//       // console.log(res.data.secure_url)
 
-        props.setImage(res.data.url);
-      })
-};
+//         props.setImage(res.data.url);
+//       })
+// };
 
-// console.log(props.image)
-// console.log(props.state.newTrack.url)
-useEffect(function () {
-  props.state.newTrack.url = props.image
-}, [props.image, props.state.newTrack])
+// // console.log(props.image)
+// // console.log(props.state.newTrack.url)
+// useEffect(function () {
+//   props.state.newTrack.url = props.image
+// }, [props.image, props.state.newTrack])
 
 
 
@@ -52,8 +52,29 @@ useEffect(function () {
 
 return (
     <>
+    {/* <style type="text/css">
+    {`
+    .btn-flat {
+      background-color: purple;
+      color: white;
+    }
+
+    .btn-xxl {
+      padding: 1rem 1.5rem;
+      font-size: 1.5rem;
+    }
+    `}
+  </style> */}
+
     <Header user={props.userState.user} />
-    <Link className= "btn btn-default" to='/'> Home</Link>
+    <div className="buttons">
+    <button class="button"><Link  class="link"to='/'> Home</Link>
+ </button>
+ </div>
+ {/* <Button variant="flat" size="xxl">
+    flat button
+  </Button> */}
+
       <div class="mainContainer container-fluid" >  
 
        <form  onSubmit={props.handleSubmit} >
@@ -79,7 +100,7 @@ return (
           </div>
        </div>   
       <div className="form-row-submit" >
-      <div className="form-input-upload">
+      {/* <div className="form-input-upload">
 
       <small>(upload twice to see image in effect)</small><input name="url" type="file"    
         // value={props.state.newTrack.url}
@@ -89,14 +110,15 @@ return (
             
              }} /> 
              
-             </div>
+             </div> */}
 
 
 
              <div className="form-input-button">
+                       {/* <button disabled={!props.userState.user} class="formdiv" onClick={uploadImage} > {props.state.editMode ? 'Edit ' : 'Add '}</button>
+        <button disabled={!props.userState.user} class="formdiv" onClick={uploadImage} > img upload</button> */}
 
-        <button disabled={!props.userState.user} class="formdiv" onClick={uploadImage} > {props.state.editMode ? 'Edit ' : 'Add '}</button>
-        <button disabled={!props.userState.user} class="formdiv" onClick={uploadImage} > img upload</button>
+
         </div>
         </div>
       </form>
@@ -104,15 +126,15 @@ return (
       { props.userState.user ? props.state.tracks.map((s, i) => (
         <div class="containerData" key={i}>
           
-          <Link className= "btn btn-default" to='/details'> Home</Link>
+          {/* <Link className= "btn btn-default" to='/details'> Home</Link> */}
           {console.log(s)}
 
             {/* {console.log(props.image)} */}
           {/* <div> <img class="card-img-top"   cloudName='dklcmfo0q'  src={props.image} alt="Card image cap"/></div>  */}
           {/* <Image class="CardImage"  cloudName="dklcmfo0q" publicId={props.state.newTrack} /> */}
-          <div>
+          {/* <div>
           <img class="cardImage" src={s.url}  publicid={props.image} alt="Loading"/>
-          </div>
+          </div> */}
 {/* <cloudName='dklcmfo0q'  publicId="musicimages/lzgodi4uvnoitgwwct3p" > */}
         <div class='info'>
           <div className="info-row">
@@ -134,7 +156,7 @@ return (
 <div class="controls-container">
           <div class="controls" onClick={()=> props.handleEdit(s._id)}> {'✏️'}</div>
           <div class="controls" onClick={() => props.handleDelete(s._id)}> {'🗑'}</div> 
-          <Link className= "btn btn-default btn-light" to={`/details/${s._id}`} > Add </Link>
+          <div class="controls">  <Link className= "btn btn-default btn-light" to={`/details/${s._id}`} > ➕ </Link></div>
 
 
 </div>
