@@ -115,8 +115,8 @@ return (
 
 
              <div className="form-input-button">
-                       {/* <button disabled={!props.userState.user} class="formdiv" onClick={uploadImage} > {props.state.editMode ? 'Edit ' : 'Add '}</button>
-        <button disabled={!props.userState.user} class="formdiv" onClick={uploadImage} > img upload</button> */}
+                       <button disabled={!props.userState.user} class="formdiv"  > {props.state.editMode ? 'Edit ' : 'Add '}</button>
+        {/* <button disabled={!props.userState.user} class="formdiv" onClick={uploadImage} > img upload</button> */}
 
 
         </div>

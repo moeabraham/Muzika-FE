@@ -16,7 +16,7 @@ const MainPage = (props) => {
         <div className="container ">
             <div className="title">
             <h1 className="font-link">Welcome to your Music Library </h1>
-            <h2 className="font-link">Create a new Track </h2>
+            <h2 className="font-link">Create a new Tracksssss </h2>
 
             </div>
         <div className="page-content">
