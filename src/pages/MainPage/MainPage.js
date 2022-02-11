@@ -8,7 +8,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import dogs from './dogs.png'
 // import { faCoffee } from '@fortawesome/free-solid-svg-icons'
-import { FaBeer } from "react-icons/fa";
+import { FaPlus } from "react-icons/fa";
 import {IconContext} from "react-icons";
 
 const MainPage = (props) => {
@@ -32,9 +32,7 @@ const MainPage = (props) => {
     </div>
     <div className="page-content">
         <Card border="secondary" style={{ width: '18rem' }} >
-            {/* <IconContext.Provider value={{ className="myReact-icons"}}>
-      <FaBeer />
-    </IconContext.Provider> */}
+            <div class="filler"> <FaPlus size = '10x' /></div>
 
         <Button> <Link  class="link"to='/formpage'> Add new Tracks</Link></Button>
   </Card>

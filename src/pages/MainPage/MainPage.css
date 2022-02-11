@@ -18,15 +18,23 @@
 
   .filler{
       display:flex;
-      flex-basis:1;
+      flex-direction: column;
+      /* flex-basis:1; */
       height:50px;
       width:50px;
+      justify-content:center;
+      align-self: center;
+  }
+  .filler > svg {
+      color:red;
+      /* height:20rem; */
   }
 
-  .myreact-icons {
-    color: red;
-    height: 2em;
+  .filler:nth-child(1){
+      width:100px;
+      margin-bottom:1rem;
   }
+
   
   /* .container{
     background-image: url("./musicbg.png") no-repeat; 
@@ -54,7 +62,7 @@ img{
     /* max-height:40%; */
     min-width: 100%;
     /* min-height: 60%; */
-    height:45vh;
+    height:50vh;
     display:flex;
     flex-direction: column;
     margin-top: 2rem;
@@ -81,7 +89,7 @@ img{
 
 .card{
     margin-top:3rem;
-    height:22rem;
+    height:15rem;
     display:flex;
     /* width:100vw; */
 }
@@ -100,6 +108,9 @@ Button {
  @media (max-width: 1200px) {
     .container{
         background-image: url("./tapes.png") ;
+        display:flex;
+        flex-direction:column;
+        margin:auto;
 
     }
     /* .page-content > div{
