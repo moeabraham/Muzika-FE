@@ -110,3 +110,24 @@ li > img {
     margin-right: 1.5rem;
     color: white;
 }
+
+
+
+@media (max-width: 786px) {
+    .menu-bars-display{
+        grid-gap:0;
+        gap:0;
+        margin-right:0.5rem;
+        display:flex;
+        flex-direction:column
+    }
+
+   .txt-display > .hide{
+        display:none;
+    }
+    
+    /* .page-content > div{
+        background-image:url("./sunglass.png")
+    } */
+   
+} 

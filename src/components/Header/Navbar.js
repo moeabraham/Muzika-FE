@@ -34,7 +34,7 @@ function Navbar(props) {
            {/* <FaIcons.FaBars onClick={showSidebar} /> */}
            {/* <li>Welcome, {props.user.displayName}</li> */}
            {props.user ?
-            <><li className="txt-display">Welcome, {props.user.displayName}</li><li>
+            <><li className="txt-display"><p className="hide">Welcome, </p><p className="hide">{props.user.displayName}</p> </li><li>
                               <img className="img-display"
                                   // style={{height: '2.6rem',width:'2.6rem', borderRadius:'50%'}}
                                   src={props.user.photoURL}
