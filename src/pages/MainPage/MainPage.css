@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 
 .title{
     width:100vw;
@@ -26,8 +30,8 @@
       align-self: center;
   }
   .filler > svg {
-      color:red;
-      /* height:20rem; */
+    color:rgb(231 108 46);
+    /* height:20rem; */
   }
 
   .filler:nth-child(1){
@@ -60,19 +64,31 @@ img{
 .container{
       /* background-size: cover; */
     /* max-height:40%; */
-    min-width: 100%;
+    /* min-width: 100%; */
     /* min-height: 60%; */
     height:50vh;
+    width:100vw;
     display:flex;
     flex-direction: column;
-    margin-top: 2rem;
-    margin-left: 25rem;
+    justify-content:center;
+    align-self:center;
+    align-items:center;
+    /* margin-top: 2rem; */
+    /* margin-bottom:1rem;  */
+    /* margin-left: 25rem;
     margin-right:25rem;
-    margin-bottom:1rem;
-    background-image: url(./dogs.png) ;
+   */
+    background-image: url(./dogs.png);
     background-repeat: no-repeat;
+    width: 100vmin;
 
 
+}
+.font-link{
+    display:none;
+}
+.container > img{
+    background-color:black;
 }
 
 .page-content{
@@ -113,6 +129,10 @@ Button {
         margin:auto;
 
     }
+    .font-link{
+        display:block;
+    }
+    
     /* .page-content > div{
         background-image:url("./sunglass.png")
     } */

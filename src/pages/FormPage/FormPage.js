@@ -1,5 +1,8 @@
-import Header from '../../components/Header/Header'
+import Navbar from '../../components/Header/Navbar'
 import {Link} from 'react-router-dom'
+import * as FaIcons from 'react-icons/fa';
+import * as AiIcons from 'react-icons/ai';
+
 // import styles from './FormPage.module.css'
 // import Axios from 'axios';
 // import { useState, useEffect } from 'react';
@@ -66,9 +69,9 @@ return (
     `}
   </style> */}
 
-    <Header user={props.userState.user} />
+    <Navbar user={props.userState.user} />
     <div className="buttons">
-    <button class="button"><Link  class="link"to='/'> Home</Link>
+    <button class="button"><Link  class="link"to='/'> <AiIcons.AiFillHome /></Link>
  </button>
  </div>
  {/* <Button variant="flat" size="xxl">

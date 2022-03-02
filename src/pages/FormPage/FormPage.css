@@ -22,7 +22,7 @@
 
 .imgdiv{
 /* width:33%; */
-height:100vh;  
+height:76vh;  
 /* width:500px; */
   display:flex;
     flex-direction: row;
@@ -61,8 +61,8 @@ form{
 .form-row-submit{
 display:flex;
 justify-content:center;
-margin-bottom:2rem;
-gap:5%;
+/* margin-bottom:2rem;
+gap:5%; */
 
 }
 .form-input-upload{
@@ -241,8 +241,10 @@ img{
       color: white;
       padding: 1rem 1.5rem;
       display:flex;
-      background-color: #f17d80;
+      background-color: rgb(231 108 46);;
       border-radius: 25%;
+      margin-top:2rem;
+      margin-left:2rem
       
       /* font-size: 1.5rem; */
       /* border-radius: 50%; */

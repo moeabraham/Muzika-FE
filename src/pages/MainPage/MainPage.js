@@ -1,5 +1,6 @@
 
 import Header from '../../components/Header/Header';
+import Navbar from '../../components/Header/Navbar';
 import {Link} from 'react-router-dom'
 import "./MainPage.css";
 // import Background from "../../components/Background/Background.js";
@@ -15,7 +16,7 @@ const MainPage = (props) => {
 
     return (
         <>
-        <Header user={props.userState.user}  />
+        <Navbar user={props.userState.user}  />
         <div className="container ">
             <div className="title">
             <h1 className="font-link">Welcome to your Music Library </h1>

@@ -1,8 +1,11 @@
 
 
 import React from 'react'
-import Header from '../../components/Header/Header'
+import Navbar from '../../components/Header/Navbar'
 import UploadImage from "../../components/ImageUpload/UploadImage"
+import * as FaIcons from 'react-icons/fa';
+import * as AiIcons from 'react-icons/ai';
+import * as BiIcons from 'react-icons/bi';
 
 import {Link} from 'react-router-dom'
 // import styles from './FormPage.module.css'
@@ -35,11 +38,11 @@ return (
       }
       `}
     </style>
-    <Header user={props.userState.user} />
+    <Navbar user={props.userState.user} />
     <div className='buttons'>
-    <button class="button">    <Link  class="link"to='/'> Home</Link>
+    <button class="button">    <Link  class="link"to='/'> <AiIcons.AiFillHome /></Link>
  </button>
-    <button class="button">    <Link  class="link"to='/formpage'> Back to form page</Link>
+    <button class="button">    <Link  class="link"to='/formpage'><BiIcons.BiArrowBack />Back to form page</Link>
  </button>
  </div>
     <UploadImage />
