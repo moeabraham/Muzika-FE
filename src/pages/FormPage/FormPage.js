@@ -2,6 +2,7 @@ import Navbar from '../../components/Header/Navbar'
 import {Link} from 'react-router-dom'
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
+import * as BsIcons from 'react-icons/bs';
 
 // import styles from './FormPage.module.css'
 // import Axios from 'axios';
@@ -159,7 +160,7 @@ return (
 <div class="controls-container">
           <div class="controls" onClick={()=> props.handleEdit(s._id)}> {'✏️'}</div>
           <div class="controls" onClick={() => props.handleDelete(s._id)}> {'🗑'}</div> 
-          <div class="controls">  <Link className= "btn btn-default btn-light" to={`/details/${s._id}`} > ➕ </Link></div>
+          <div class="controls">  <Link className= "btn btn-default btn-light" to={`/details/${s._id}`} > <BsIcons.BsImages /> </Link></div>
 
 
 </div>
