@@ -17,27 +17,39 @@ const MainPage = (props) => {
     return (
         <>
         <Navbar user={props.userState.user}  />
+
         <div className="container ">
-            <div className="title">
+            <div>
+            {/* <img src=""></img> */}
+        {/* <div className="page-content"> */}
+            <Card border="secondary" style={{ width: '18rem' }} >
+                    <div class="filler"> <FaPlus size = '10x' /></div>
+
+                <Button> <Link  class="link"to='/formpage'> Add new Tracks</Link></Button>
+            </Card>
+              {/* </div> */}
+
+            {/* <div className="title">
             <h1 className="font-link">Welcome to your Music Library </h1>
             <h2 className="font-link">Create a new Tracks </h2>
 
             </div>
-            
+             */}
   
        
 
 
 
-
+  </div>
     </div>
-    <div className="page-content">
+    
+    {/* <div className="page-content">
         <Card border="secondary" style={{ width: '18rem' }} >
             <div class="filler"> <FaPlus size = '10x' /></div>
 
         <Button> <Link  class="link"to='/formpage'> Add new Tracks</Link></Button>
   </Card>
-              </div>
+              </div> */}
  
         </>
     )

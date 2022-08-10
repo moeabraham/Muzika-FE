@@ -1,7 +1,21 @@
 *{
     box-sizing: border-box;
 }
+body{
+    background-image: url(https://wallpaperaccess.com/full/6151203.jpg) ;
 
+
+
+    background-repeat: no-repeat;
+    width:100vw;
+    height:100vh;
+
+}
+body > background-image{
+    width:100vw;
+    height:100vh;
+    filter: grayscale(35%);
+}
 
 .title{
     width:100vw;
@@ -39,57 +53,42 @@
       margin-bottom:1rem;
   }
 
-  
-  /* .container{
-    background-image: url("./musicbg.png") no-repeat; 
-    background-size: cover;
-    min-width: 100%;
-    min-height: 100%;
- 
-} */
-/* .musicbg{
-    background-image: url(./musicbg.png);
 
-    background-size: stretch;
-
-}
-
-img{
-    background-size: cover;
-    min-width: 100%;
-    min-height: 100%;
-  
-} */
 
 .container{
       /* background-size: cover; */
     /* max-height:40%; */
     /* min-width: 100%; */
     /* min-height: 60%; */
-    height:50vh;
+    height:100vh;
     width:100vw;
     display:flex;
     flex-direction: column;
-    justify-content:center;
+  justify-content:center;
     align-self:center;
-    align-items:center;
+    align-items:center; 
     /* margin-top: 2rem; */
     /* margin-bottom:1rem;  */
     /* margin-left: 25rem;
     margin-right:25rem;
    */
-    background-image: url(./dogs.png);
-    background-repeat: no-repeat;
+    /* background-image: url(https://images.unsplash.com/photo-1563902524-e2d4aeb2106f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8M3wxMTQ2NjQ3fHxlbnwwfHx8fA%3D%3D&w=1000&q=80); */
+    /* background-repeat: no-repeat; */
     width: 100vmin;
 
+
+}
+.container > img{
+    width:100vw;
+    height:100vh;
 
 }
 .font-link{
     display:none;
 }
-.container > img{
+/* .container > img{
     background-color:black;
-}
+} */
 
 .page-content{
     height: 400px;
@@ -107,6 +106,8 @@ img{
     margin-top:3rem;
     height:15rem;
     display:flex;
+    background-color: transparent
+
     /* width:100vw; */
 }
 .card > .filler{
